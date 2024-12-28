@@ -5,11 +5,11 @@ interface ColourSwatchProps {
 
 export function ColourSwatch({ name, colorClass }: ColourSwatchProps) {
   return (
-    <div className="flex flex-row p-12 gap-x-12 outline outline-neutral-100 rounded-8 shadow">
-      <div
-        className={`size-48 rounded-8 border border-neutral-100 ${colorClass}`}
-      />
-      <p className="text-neutral-900 font-semibold text-base">{name}</p>
+    <div className="flex flex-col gap-x-12 rounded-8 border border-neutral-200">
+      <div className={`w-full h-64 rounded-8 rounded-b-0 ${colorClass}`} />
+      <div className="p-12 border-t border-neutral-200">
+        <p className="text-neutral-900 font-regular">{name}</p>
+      </div>
     </div>
   )
 }

@@ -96,7 +96,7 @@ export function ColourPalette() {
         <div key={key} className="flex flex-col gap-y-12">
           <Text.HeadingM>{palette.title}</Text.HeadingM>
           <Text.Paragraph>{palette.description}</Text.Paragraph>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(125px,1fr))] gap-12">
             {palette.colors.map((color) => (
               <ColourSwatch
                 key={color.name}

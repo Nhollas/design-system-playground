@@ -21,11 +21,12 @@ export default function Navigation() {
   const formattedPath = shapePathname(pathname)
 
   return (
-    <nav className="bg-neutral-0 rounded-t-12 p-40 tablet:p-64 space-y-32">
-      <Text.Paragraph size="xl" className="text-neutral-700">
-        Design System Playground
-      </Text.Paragraph>
-      <ul className="flex flex-wrap gap-40 gap-y-16 **:[li]:underline">
+    <nav className="bg-neutral-0 rounded-t-12 p-40 tablet:p-64 space-y-32 flex flex-col desktop:flex-row justify-between items-start">
+      <section className="space-y-16">
+        <Text.Paragraph size="xl">Design System Playground</Text.Paragraph>
+        <Text.HeadingL weight="medium">{formattedPath}</Text.HeadingL>
+      </section>
+      <ul className="flex flex-wrap gap-40 gap-y-16 **:[li]:underline col-span-1 desktop:col-span-2">
         <li>
           <Link
             href="/typography"
@@ -67,7 +68,6 @@ export default function Navigation() {
           </Link>
         </li>
       </ul>
-      <Text.HeadingL weight="medium">{formattedPath}</Text.HeadingL>
     </nav>
   )
 }
