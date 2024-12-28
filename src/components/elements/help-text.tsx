@@ -35,17 +35,12 @@ export function HelpTextToggle({ className }: { className?: string }) {
   return (
     <Button
       onPress={() => toggle((prev) => !prev)}
-      className="size-[28px] desktop:size-32 z-20 -mx-4 rounded-full hover:bg-secondary-100 focus:border ring-secondary-200 outline-none focus:ring-2"
+      className="size-[22px] desktop:size-[26px] z-20 -mx-2 rounded-full ring-secondary-200 outline-none focus:ring-2 flex justify-center items-center hover:ring-2"
     >
       <Text.Paragraph as="span" className="sr-only">
         Toggle help text
       </Text.Paragraph>
-      <IconSlot
-        className={cn(
-          "place-self-center text-secondary-600 cursor-pointer",
-          className,
-        )}
-      >
+      <IconSlot className={cn("text-secondary-600 cursor-pointer", className)}>
         <Info />
       </IconSlot>
     </Button>
