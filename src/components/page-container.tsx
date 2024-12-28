@@ -1,5 +1,7 @@
 export function PageContainer({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col gap-y-16 max-w-sm mx-auto">{children}</div>
+    <div className="grid grid-cols-1 desktop:grid-cols-2 gap-16 desktop:gap-24 max-w-sm desktop:max-w-xl mx-auto">
+      {children}
+    </div>
   )
 }
