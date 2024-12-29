@@ -56,7 +56,7 @@ export function SelectField<
                 value={field.value}
               >
                 <FormControl>
-                  <SelectTrigger onBlur={field.onBlur}>
+                  <SelectTrigger>
                     <SelectValue placeholder={placeholder} />
                   </SelectTrigger>
                 </FormControl>

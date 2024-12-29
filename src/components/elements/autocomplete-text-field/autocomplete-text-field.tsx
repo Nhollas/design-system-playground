@@ -107,7 +107,7 @@ export function AutocompleteTextField<
                 </IconSlot>
                 <Label optional={isOptional}>{label}</Label>
                 <Input
-                  placeholder={placeholder ?? ""}
+                  placeholder={placeholder ?? " "}
                   isSuccess={isSuccess}
                   isError={isError}
                 />
