@@ -33,7 +33,7 @@ export default function AutocompleteInputPage() {
           label="Occupation"
           control={form.control}
           fieldPath="occupation"
-          placeholder="Placeholder"
+          placeholder="Really Long Placeholder Text"
           tailIcon={<Clock />}
           description="This is a description."
           helpText="This is help text."
@@ -45,7 +45,7 @@ export default function AutocompleteInputPage() {
           label="Industry"
           control={form.control}
           fieldPath="industry"
-          placeholder="Placeholder"
+          placeholder="Really Long Placeholder Text"
           tailIcon={<Clock />}
           description="This is a description."
           helpText="This is help text."
