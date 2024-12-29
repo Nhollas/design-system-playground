@@ -22,7 +22,7 @@ function Label({ className, optional = false, ...props }: LabelProps) {
     >
       <span
         data-slot="label-text"
-        className="bg-neutral-0 flex gap-4 items-center"
+        className="bg-neutral-0 flex gap-4 items-center w-full"
       >
         {props.children}
         {optional && (
