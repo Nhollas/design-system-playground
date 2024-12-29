@@ -34,14 +34,14 @@ export function InputGroup({
         "**:data-[slot=label]:**:delay-[150ms,0ms]",
         "**:data-[slot=label]:ease-in-out",
         "**:data-[slot=label]:duration-[250ms,500ms]",
-        "**:data-[slot=label]:*:grow",
         "**:data-[slot=label]:p-12",
         "**:data-[slot=label]:z-10",
         "**:data-[slot=label]:h-auto",
-        "**:data-[slot=label]:w-full",
         "**:data-[slot=label]:row-start-1",
         "**:data-[slot=label]:col-span-4",
         "**:data-[slot=label]:col-start-1",
+        // Default Label Text styles
+        "**:data-[slot=label-text]:grow",
         // Apply styles to Label when Icon is present
         "has-[[data-slot=icon]+[data-slot=label]]:**:data-[slot=label]:pl-40",
         // Apply styles to Label when there is Icon after Control
@@ -52,16 +52,18 @@ export function InputGroup({
         "has-[[data-slot=control]:not(:placeholder-shown)]:**:data-[slot=label]:text-14",
         "has-[[data-slot=control]:not(:placeholder-shown)]:**:data-[slot=label-text]:px-4",
         "has-[[data-slot=control]:not(:placeholder-shown)]:**:data-[slot=label]:py-4",
-        "has-[[data-slot=control]:not(:placeholder-shown)]:**:data-[slot=label]:*:grow-0",
         "has-[[data-slot=control]:not(:placeholder-shown)]:**:data-[slot=label]:h-max",
+        // Apply styles to Label Text when control doesn't have placeholder shown
+        "has-[[data-slot=control]:not(:placeholder-shown)]:**:data-[slot=label-text]:grow-0",
         // Apply styles to Label when this element has focus within
         "focus-within:**:data-[slot=label]:-translate-y-[14px]",
         "focus-within:**:data-[slot=label]:!px-12",
         "focus-within:**:data-[slot=label]:text-14",
         "focus-within:**:data-[slot=label-text]:px-4",
         "focus-within:**:data-[slot=label]:py-4",
-        "focus-within:**:data-[slot=label]:*:grow-0",
         "focus-within:**:data-[slot=label]:h-max",
+        // Apply styles to Label Text when this element has focus within
+        "focus-within:**:data-[slot=label-text]:grow-0",
         className,
       )}
       {...props}
