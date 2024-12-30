@@ -35,8 +35,8 @@
   --tracking-tight: -1%;
 
   --leading-*: initial;
-  --leading-150: "150%";
-  --leading-125: "125%";
+  --leading-150: 150%;
+  --leading-125: 125%;
 
   --text-*: initial;
   --text-56: 3.5rem;

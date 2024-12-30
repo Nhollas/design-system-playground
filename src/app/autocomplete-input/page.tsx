@@ -43,8 +43,8 @@ export default function AutocompleteInputPage() {
           fieldPath="occupation"
           placeholder="Really Long Placeholder Text"
           tailIcon={<Clock />}
-          description="This is a description."
-          helpText="This is help text."
+          description="Choose the job title that best fits your current role."
+          helpText="E.g., software developer, project manager, etc."
           options={occupationOptions}
           getOptionValue={(option) => option.value}
           getDisplayValue={(option) => option.label}
@@ -55,8 +55,8 @@ export default function AutocompleteInputPage() {
           fieldPath="industry"
           placeholder="Really Long Placeholder Text"
           tailIcon={<Clock />}
-          description="This is a description."
-          helpText="This is help text."
+          description="Select the industry that best describes your organization."
+          helpText="E.g., healthcare, finance, technology, etc."
           options={industryOptions}
           getOptionValue={(option) => option.value}
           getDisplayValue={(option) => option.label}

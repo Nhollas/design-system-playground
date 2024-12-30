@@ -158,7 +158,6 @@ function Paragraph({
   return (
     <Component
       className={cn(
-        "leading-150 text-neutral-700",
         {
           "text-20 desktop:text-24": size === "xxl",
           "text-18 desktop:text-20": size === "xl",
@@ -169,6 +168,7 @@ function Paragraph({
           "font-medium": weight === "medium",
           "font-semibold": weight === "semibold",
         },
+        "leading-150 text-neutral-700",
         className,
       )}
     >
@@ -187,11 +187,11 @@ function Label({
   return (
     <Component
       className={cn(
-        "font-semibold uppercase leading-150 tracking-5",
         {
           "text-14": size === "small",
           "text-16": size === "large",
         },
+        "font-semibold uppercase leading-150 tracking-5",
         className,
       )}
       htmlFor={htmlFor}
@@ -210,10 +210,10 @@ function ButtonLabel({
   return (
     <Component
       className={cn(
-        "font-medium uppercase leading-125 tracking-5",
         {
           underline: variant === "tertiary",
         },
+        "font-medium uppercase leading-125 tracking-5",
         className,
       )}
     >
