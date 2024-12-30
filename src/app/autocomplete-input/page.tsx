@@ -13,12 +13,20 @@ const FormSchema = z.object({
   industry: z.string({ required_error: "Industry is required." }).min(1),
 })
 
-const listBoxItems = createListBoxOptions(
-  Array.from({ length: 20 }, (_, i) => ({
-    label: `Item ${i + 1}`,
-    value: `Item ${i + 1}`,
-  })),
-)
+const occupationOptions = createListBoxOptions([
+  { label: "Software Developer", value: "software-developer" },
+  { label: "Data Analyst", value: "data-analyst" },
+  { label: "Product Manager", value: "product-manager" },
+  { label: "Project Manager", value: "project-manager" },
+  { label: "UX Designer", value: "ux-designer" },
+])
+const industryOptions = createListBoxOptions([
+  { label: "Technology", value: "technology" },
+  { label: "Healthcare", value: "healthcare" },
+  { label: "Finance", value: "finance" },
+  { label: "Education", value: "education" },
+  { label: "Manufacturing", value: "manufacturing" },
+])
 
 export default function AutocompleteInputPage() {
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -37,7 +45,7 @@ export default function AutocompleteInputPage() {
           tailIcon={<Clock />}
           description="This is a description."
           helpText="This is help text."
-          options={listBoxItems}
+          options={occupationOptions}
           getOptionValue={(option) => option.value}
           getDisplayValue={(option) => option.label}
         />
@@ -49,7 +57,7 @@ export default function AutocompleteInputPage() {
           tailIcon={<Clock />}
           description="This is a description."
           helpText="This is help text."
-          options={listBoxItems}
+          options={industryOptions}
           getOptionValue={(option) => option.value}
           getDisplayValue={(option) => option.label}
         />

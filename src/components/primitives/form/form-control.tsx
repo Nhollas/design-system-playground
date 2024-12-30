@@ -21,7 +21,7 @@ export const FormControl: React.FC<SlotProps> = ({ ...props }) => {
           ? `${formDescriptionId}`
           : `${formDescriptionId} ${formMessageId}`
       }
-      aria-invalid={!!error}
+      aria-invalid={isError}
       data-success={isSuccess}
       data-error={isError}
       {...props}

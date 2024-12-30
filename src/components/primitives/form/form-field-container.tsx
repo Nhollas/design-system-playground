@@ -61,14 +61,14 @@ export function FormFieldContainer({
         "has-[[data-slot=control]+[data-slot=icon]]:**:data-[slot=label]:pr-40",
         // Apply styles to Label when control doesn't have placeholder shown
         "has-[[data-slot=control]:not(:placeholder-shown)]:**:data-[slot=label]:!px-12",
-        "has-[[data-slot=control]:not(:placeholder-shown)]:**:data-[slot=label]:-translate-y-[25px]",
+        "has-[[data-slot=control]:not(:placeholder-shown)]:**:data-[slot=label]:-translate-y-1/2",
         // Apply styles to Label Text when control doesn't have placeholder shown
         "has-[[data-slot=control]:not(:placeholder-shown)]:**:data-[slot=label-text]:px-12",
         "has-[[data-slot=control]:not(:placeholder-shown)]:**:data-[slot=label-text]:grow-0",
         "has-[[data-slot=control]:not(:placeholder-shown)]:**:data-[slot=label-text]:text-14",
         // Apply styles to Label when this element has focus within
         "focus-within:**:data-[slot=label]:!px-12",
-        "focus-within:**:data-[slot=label]:-translate-y-[25px]",
+        "focus-within:**:data-[slot=label]:-translate-y-1/2",
         // Apply styles to Label Text when this element has focus within
         "focus-within:**:data-[slot=label-text]:px-12",
         "focus-within:**:data-[slot=label-text]:grow-0",
