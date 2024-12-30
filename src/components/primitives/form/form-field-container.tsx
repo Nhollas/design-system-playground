@@ -48,7 +48,7 @@ export function FormFieldContainer({
         "**:data-[slot=label-text]:transition-[flex-grow,padding,font-size]",
         "**:data-[slot=label-text]:ease-in-out",
         "**:data-[slot=label-text]:duration-[250ms]",
-        "**:data-[slot=label-text]:delay-100",
+        "**:data-[slot=label-text]:delay-[50ms]",
         "**:data-[slot=label-text]:grow",
         // Apply disabled styles to Label Text when Control is disabled
         "has-[[data-slot=control]:disabled]:**:data-[slot=label-text]:bg-neutral-50",
