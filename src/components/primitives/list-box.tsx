@@ -13,7 +13,7 @@ export function ListBox<T extends object>({
   return (
     <ReactAriaListBox
       {...props}
-      className="max-h-256 overflow-y-scroll p-4 space-y-2 py-8 rounded-8 border border-neutral-200 bg-neutral-0"
+      className="max-h-256 overflow-y-scroll p-4 space-y-2 rounded-8 border border-neutral-200 bg-neutral-0"
     >
       {children}
     </ReactAriaListBox>
