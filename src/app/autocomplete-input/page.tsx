@@ -1,5 +1,5 @@
 "use client"
-import { Clock } from "lucide-react"
+import { Briefcase, Building2 } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -42,7 +42,7 @@ export default function AutocompleteInputPage() {
           control={form.control}
           fieldPath="occupation"
           placeholder="Really Long Placeholder Text"
-          tailIcon={<Clock />}
+          tailIcon={<Briefcase />}
           description="Choose the job title that best fits your current role."
           helpText="E.g., software developer, project manager, etc."
           options={occupationOptions}
@@ -54,7 +54,7 @@ export default function AutocompleteInputPage() {
           control={form.control}
           fieldPath="industry"
           placeholder="Really Long Placeholder Text"
-          tailIcon={<Clock />}
+          tailIcon={<Building2 />}
           description="Select the industry that best describes your organization."
           helpText="E.g., healthcare, finance, technology, etc."
           options={industryOptions}

@@ -37,9 +37,13 @@ export function TextField<
           <HelpTextProvider>
             {helpText && <HelpTextToggle />}
             <FormFieldContainer>
-              <IconSlot className="text-success-600">
-                {isSuccess ? <CircleCheck /> : leadIcon}
-              </IconSlot>
+              {isSuccess ? (
+                <IconSlot className="text-success-600">
+                  <CircleCheck />
+                </IconSlot>
+              ) : (
+                <IconSlot>{leadIcon}</IconSlot>
+              )}
               <FormLabel optional={isOptional}>{label}</FormLabel>
               <FormControl>
                 <Input
@@ -49,9 +53,7 @@ export function TextField<
                   {...inputProps}
                 />
               </FormControl>
-              {tailIcon && (
-                <IconSlot className="text-success-600">{tailIcon}</IconSlot>
-              )}
+              {tailIcon && <IconSlot>{tailIcon}</IconSlot>}
             </FormFieldContainer>
             {description && <FormDescription>{description}</FormDescription>}
             <FormMessage />

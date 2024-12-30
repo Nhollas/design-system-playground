@@ -111,9 +111,7 @@ export function AutocompleteTextField<
                   data-success={isSuccess}
                   data-error={isError}
                 />
-                {tailIcon && (
-                  <IconSlot className="text-success-600">{tailIcon}</IconSlot>
-                )}
+                {tailIcon && <IconSlot>{tailIcon}</IconSlot>}
               </FormFieldContainer>
               <Popover className="w-[var(--trigger-width)]">
                 <ListBox
