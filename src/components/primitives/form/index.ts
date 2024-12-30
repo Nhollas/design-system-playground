@@ -8,6 +8,7 @@ import { FormItem } from "./form-item"
 import { FormLabel } from "./form-label"
 import { FormMessage } from "./form-message"
 import { useFormField } from "./use-form-field"
+import { FormFieldContainer } from "./form-field-container"
 
 const Form = FormProvider
 
@@ -16,6 +17,7 @@ export {
   FormControl,
   FormDescription,
   FormField,
+  FormFieldContainer,
   FormItem,
   FormLabel,
   FormMessage,

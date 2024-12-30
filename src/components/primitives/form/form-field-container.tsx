@@ -4,7 +4,7 @@ Tailwind Play: https://play.tailwindcss.com/Dhj7F9RiEF
 
 import { cn } from "@/lib/utils"
 
-export function InputGroup({
+export function FormFieldContainer({
   className,
   ...props
 }: React.ComponentProps<"span">) {
@@ -38,8 +38,23 @@ export function InputGroup({
         "**:data-[slot=label]:row-start-1",
         "**:data-[slot=label]:col-span-4",
         "**:data-[slot=label]:col-start-1",
+        "**:data-[slot=label]:transition-[translate,padding]",
+        "**:data-[slot=label]:ease-in-out",
+        "**:data-[slot=label]:duration-[250ms]",
+        "**:data-[slot=label]:p-12",
         // Default Label Text styles
         "**:data-[slot=label-text]:bg-neutral-0",
+        "**:data-[slot=label-text]:rounded-8",
+        "**:data-[slot=label-text]:transition-[flex-grow,padding,font-size]",
+        "**:data-[slot=label-text]:ease-in-out",
+        "**:data-[slot=label-text]:duration-[250ms]",
+        "**:data-[slot=label-text]:delay-100",
+        "**:data-[slot=label-text]:grow",
+        // Apply disabled styles to Label Text when Control is disabled
+        "has-[[data-slot=control]:disabled]:**:data-[slot=label-text]:bg-neutral-50",
+        "has-[[data-slot=control]:disabled]:**:data-[slot=label-text]:text-neutral-700",
+        // Apply disabled styles when Control is disabled
+        "has-[[data-slot=control]:disabled]:pointer-events-none",
         // Apply styles to Label when Icon is present
         "has-[[data-slot=icon]+[data-slot=label]]:**:data-[slot=label]:pl-40",
         // Apply styles to Label when there is Icon after Control

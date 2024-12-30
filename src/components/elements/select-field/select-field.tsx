@@ -14,11 +14,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+  FormFieldContainer,
 } from "@/components/primitives/form"
 import { HelpTextMessage, HelpTextProvider, HelpTextToggle } from "../help-text"
 import { IconSlot } from "@/components/primitives/icon-slot"
 import { ChevronDown, CircleCheck } from "lucide-react"
-import { InputGroup } from "@/components/primitives/input-group"
 import { ControlledSelectFieldProps } from "./select-field.types"
 
 export function SelectField<
@@ -43,7 +43,7 @@ export function SelectField<
         <FormItem>
           <HelpTextProvider>
             {helpText && <HelpTextToggle />}
-            <InputGroup>
+            <FormFieldContainer>
               <IconSlot className="text-success-600">
                 {isSuccess ? <CircleCheck /> : leadIcon}
               </IconSlot>
@@ -71,7 +71,7 @@ export function SelectField<
               <IconSlot className="text-neutral-700">
                 <ChevronDown />
               </IconSlot>
-            </InputGroup>
+            </FormFieldContainer>
             {description && <FormDescription>{description}</FormDescription>}
             <FormMessage />
             <HelpTextMessage>{helpText}</HelpTextMessage>

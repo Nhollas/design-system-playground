@@ -32,6 +32,15 @@ export default function InputPage() {
           placeholder="Placeholder"
           leadIcon={<Clock />}
           tailIcon={<Clock />}
+          disabled
+        />
+        <TextField
+          label="Text Field"
+          control={form.control}
+          fieldPath="username"
+          placeholder="Placeholder"
+          leadIcon={<Clock />}
+          tailIcon={<Clock />}
         />
         <TextField
           label="Text Field"

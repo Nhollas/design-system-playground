@@ -8,9 +8,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+  FormFieldContainer,
 } from "@/components/primitives/form"
 import { HelpTextMessage, HelpTextProvider, HelpTextToggle } from "../help-text"
-import { InputGroup } from "@/components/primitives/input-group"
 import { IconSlot } from "@/components/primitives/icon-slot"
 import { Input } from "@/components/primitives/input"
 
@@ -36,7 +36,7 @@ export function TextField<
         <FormItem>
           <HelpTextProvider>
             {helpText && <HelpTextToggle />}
-            <InputGroup>
+            <FormFieldContainer>
               <IconSlot className="text-success-600">
                 {isSuccess ? <CircleCheck /> : leadIcon}
               </IconSlot>
@@ -52,7 +52,7 @@ export function TextField<
               {tailIcon && (
                 <IconSlot className="text-success-600">{tailIcon}</IconSlot>
               )}
-            </InputGroup>
+            </FormFieldContainer>
             {description && <FormDescription>{description}</FormDescription>}
             <FormMessage />
             <HelpTextMessage>{helpText}</HelpTextMessage>

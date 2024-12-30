@@ -16,11 +16,11 @@ import {
   FormField,
   FormItem,
   FormMessage,
+  FormFieldContainer,
 } from "@/components/primitives/form"
 import { IconSlot } from "@/components/primitives/icon-slot"
 import { ComboBox, Text, Popover, Key } from "react-aria-components"
 import { Input } from "@/components/primitives/input"
-import { InputGroup } from "@/components/primitives/input-group"
 import { Label } from "@/components/primitives/label"
 
 export function AutocompleteTextField<
@@ -101,20 +101,20 @@ export function AutocompleteTextField<
               onBlur={field.onBlur}
               onInputChange={onInputChange}
             >
-              <InputGroup>
+              <FormFieldContainer>
                 <IconSlot className="text-success-600">
                   {isSuccess ? <CircleCheck /> : leadIcon}
                 </IconSlot>
                 <Label optional={isOptional}>{label}</Label>
                 <Input
                   placeholder={placeholder ?? " "}
-                  isSuccess={isSuccess}
-                  isError={isError}
+                  data-success={isSuccess}
+                  data-error={isError}
                 />
                 {tailIcon && (
                   <IconSlot className="text-success-600">{tailIcon}</IconSlot>
                 )}
-              </InputGroup>
+              </FormFieldContainer>
               <Popover className="w-[var(--trigger-width)]">
                 <ListBox
                   aria-label={`${label} Options`}
