@@ -34,7 +34,6 @@ export function FormFieldContainer({
         // Apply styles to Control when there is Icon after Control
         "has-[[data-slot=control]+[data-slot=icon]]:**:data-[slot=control]:pr-40",
         // Default Label styles
-        "**:data-[slot=label]:z-10",
         "**:data-[slot=label]:row-start-1",
         "**:data-[slot=label]:col-span-4",
         "**:data-[slot=label]:col-start-1",
@@ -44,6 +43,7 @@ export function FormFieldContainer({
         "**:data-[slot=label]:p-12",
         // Default Label Text styles
         "**:data-[slot=label-text]:bg-neutral-0",
+        "**:data-[slot=label-text]:z-10",
         "**:data-[slot=label-text]:rounded-8",
         "**:data-[slot=label-text]:transition-[flex-grow,padding,font-size]",
         "**:data-[slot=label-text]:ease-in-out",
