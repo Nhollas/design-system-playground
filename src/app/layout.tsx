@@ -5,8 +5,11 @@ import Navigation from "@/components/navigation"
 import QueryClientProvider from "@/providers/query-client-provider"
 
 export const metadata: Metadata = {
-  title: "Design System Playground",
-  description: "A playground for experimenting with design systems",
+  title: {
+    template: "%s | Design System Playground",
+    default: "Design System Playground",
+  },
+  description: "A playground app for experimenting with design systems",
 }
 
 export default function RootLayout({
