@@ -59,6 +59,14 @@ export default function Navigation() {
         </li>
         <li>
           <Link
+            href="/radio"
+            className="text-neutral-700 hover:text-neutral-900"
+          >
+            Radio
+          </Link>
+        </li>
+        <li>
+          <Link
             href="/select"
             className="text-neutral-700 hover:text-neutral-900"
           >
