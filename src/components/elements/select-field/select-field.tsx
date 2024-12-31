@@ -44,11 +44,21 @@ export function SelectField<
           <HelpTextProvider>
             {helpText && <HelpTextToggle />}
             <FormFieldContainer>
-              <IconSlot className="text-success-600">
-                {isSuccess ? <CircleCheck /> : leadIcon}
-              </IconSlot>
+              {isSuccess ? (
+                <IconSlot className="text-success-600">
+                  <CircleCheck />
+                </IconSlot>
+              ) : (
+                <IconSlot className="text-neutral-700">{leadIcon}</IconSlot>
+              )}
+
               <FormLabel optional={isOptional}>{label}</FormLabel>
               <Select
+                onOpenChange={(val) => {
+                  if (!val) {
+                    field.onBlur()
+                  }
+                }}
                 onValueChange={(val) => {
                   field.onChange(val)
                   field.onBlur()

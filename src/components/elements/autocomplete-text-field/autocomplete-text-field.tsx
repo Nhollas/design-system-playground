@@ -102,16 +102,22 @@ export function AutocompleteTextField<
               onInputChange={onInputChange}
             >
               <FormFieldContainer>
-                <IconSlot className="text-success-600">
-                  {isSuccess ? <CircleCheck /> : leadIcon}
-                </IconSlot>
+                {isSuccess ? (
+                  <IconSlot className="text-success-600">
+                    <CircleCheck />
+                  </IconSlot>
+                ) : (
+                  <IconSlot className="text-neutral-700">{leadIcon}</IconSlot>
+                )}
                 <Label optional={isOptional}>{label}</Label>
                 <Input
                   placeholder={placeholder ?? " "}
                   data-success={isSuccess}
                   data-error={isError}
                 />
-                {tailIcon && <IconSlot>{tailIcon}</IconSlot>}
+                {tailIcon && (
+                  <IconSlot className="text-neutral-700">{tailIcon}</IconSlot>
+                )}
               </FormFieldContainer>
               <Popover className="w-[var(--trigger-width)]">
                 <ListBox

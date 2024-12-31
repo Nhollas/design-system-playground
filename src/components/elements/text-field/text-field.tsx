@@ -42,7 +42,7 @@ export function TextField<
                   <CircleCheck />
                 </IconSlot>
               ) : (
-                <IconSlot>{leadIcon}</IconSlot>
+                <IconSlot className="text-neutral-700">{leadIcon}</IconSlot>
               )}
               <FormLabel optional={isOptional}>{label}</FormLabel>
               <FormControl>
@@ -53,7 +53,9 @@ export function TextField<
                   {...inputProps}
                 />
               </FormControl>
-              {tailIcon && <IconSlot>{tailIcon}</IconSlot>}
+              {tailIcon && (
+                <IconSlot className="text-neutral-700">{tailIcon}</IconSlot>
+              )}
             </FormFieldContainer>
             {description && <FormDescription>{description}</FormDescription>}
             <FormMessage />
