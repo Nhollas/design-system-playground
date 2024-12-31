@@ -31,3 +31,13 @@ Open an issue or submit a pull request for any improvements or bug fixes. Contri
 - **[React Hook Form](https://react-hook-form.com/)**: Handles complex form states and validations.
 - **[Zod](https://zod.dev/)**: Ensures robust schema validation for form data.
 - **[Tanstack Query](https://tanstack.com/query/latest)**: Manages server-state, caching, and data fetching logic.
+
+## Showcase
+
+Here are some screenshots of the app in its current state:
+
+![Autocomplete Input Field](docs/images/autocomplete-input-field.png)
+![Colours](docs/images/colours.png)
+![Input Field](docs/images/input-field.png)
+![Select Field](docs/images/select-field.png)
+![Typography](docs/images/typography.png)
