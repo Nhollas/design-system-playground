@@ -53,6 +53,7 @@ export function FormFieldContainer({
         // Apply disabled styles to Label Text when Control is disabled
         "has-[[data-slot=control]:disabled]:**:data-[slot=label-text]:bg-neutral-50",
         "has-[[data-slot=control]:disabled]:**:data-[slot=label-text]:text-neutral-700",
+        "has-[[data-slot=control]:disabled]:**:data-[slot=label-text]:pointer-events-none",
         // Apply disabled styles when Control is disabled
         "has-[[data-slot=control]:disabled]:pointer-events-none",
         // Apply styles to Label when Icon is present
