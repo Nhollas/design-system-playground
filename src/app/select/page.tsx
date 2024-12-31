@@ -9,58 +9,73 @@ import { PageContainer } from "@/components/page-container"
 import { createSelectOptions } from "@/components/elements/select-field/utils"
 
 const FormSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  favoriteColor: z.string().nonempty("Please select your favorite color."),
+  country: z.string().nonempty("Please select your country."),
+  preferredTime: z.string().nonempty("Please select your preferred time."),
+  hobby: z.string().nonempty("Please select your hobby.").optional(),
 })
+
+const colorOptions = createSelectOptions(["Red", "Blue", "Green", "Yellow"])
+const countryOptions = createSelectOptions(["USA", "Canada", "UK", "Australia"])
+const timeOptions = createSelectOptions([
+  "Morning",
+  "Afternoon",
+  "Evening",
+  "Night",
+])
+const hobbyOptions = createSelectOptions([
+  "Reading",
+  "Traveling",
+  "Cooking",
+  "Gaming",
+])
 
 export default function SelectPage() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     mode: "onBlur",
     defaultValues: {
-      username: "",
+      favoriteColor: "",
+      country: "",
+      preferredTime: "",
+      hobby: "",
     },
   })
-
-  const options = createSelectOptions(
-    Array.from({ length: 20 }, (_, i) => `Item ${i}`),
-  )
 
   return (
     <PageContainer>
       <Form {...form}>
         <SelectField
-          options={options}
-          label="Text Field"
+          options={colorOptions}
+          label="Favorite Color"
           control={form.control}
-          fieldPath="username"
-          placeholder="Choose an item"
+          fieldPath="favoriteColor"
+          placeholder="Choose a color"
         />
         <SelectField
-          options={options}
-          label="Text Field"
+          options={countryOptions}
+          label="Country"
           control={form.control}
           leadIcon={<Clock />}
-          fieldPath="username"
-          placeholder="Choose an item"
+          fieldPath="country"
+          placeholder="Choose a country"
         />
         <SelectField
-          options={options}
-          label="Text Field"
+          options={timeOptions}
+          label="Preferred Time"
           control={form.control}
-          fieldPath="username"
-          placeholder="Choose an item"
+          fieldPath="preferredTime"
+          placeholder="Choose a time"
         />
         <SelectField
-          options={options}
-          label="Text Field"
+          options={hobbyOptions}
+          label="Hobby"
           isOptional
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          description="Select your favorite hobby."
           leadIcon={<Clock />}
           control={form.control}
-          fieldPath="username"
-          placeholder="Choose an item"
+          fieldPath="hobby"
+          placeholder="Choose a hobby"
           helpText="This is a help text message."
         />
       </Form>

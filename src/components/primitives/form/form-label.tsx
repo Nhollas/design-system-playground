@@ -1,11 +1,9 @@
 import { useFormField } from "./use-form-field"
-import { LabelProps } from "react-aria-components"
-import { Label } from "../label"
+import { Label, LabelProps } from "../label"
 import Text from "../text"
 
-export interface FormLabelProps extends LabelProps {
-  optional?: boolean
-}
+export type FormLabelProps = LabelProps
+
 export const FormLabel: React.FC<FormLabelProps> = ({
   className,
   optional = false,

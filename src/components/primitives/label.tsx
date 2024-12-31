@@ -1,5 +1,3 @@
-"use client"
-
 import * as React from "react"
 import {
   Label as AriaLabel,
@@ -13,7 +11,7 @@ export interface LabelProps extends AriaLabelProps {
   optional?: boolean
 }
 
-function Label({ className, optional = false, ...props }: LabelProps) {
+export function Label({ className, optional = false, ...props }: LabelProps) {
   return (
     <AriaLabel
       data-slot="label"
@@ -31,5 +29,3 @@ function Label({ className, optional = false, ...props }: LabelProps) {
     </AriaLabel>
   )
 }
-
-export { Label }

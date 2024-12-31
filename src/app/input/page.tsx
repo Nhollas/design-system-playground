@@ -48,7 +48,7 @@ export default function InputPage() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit((data) => console.log(data))}
-          className="col-span-1 desktop:col-span-2 flex flex-col gap-16"
+          className="col-span-1 desktop:col-span-2 flex flex-col gap-16 desktop:gap-24"
         >
           <TextField
             label="Postcode"

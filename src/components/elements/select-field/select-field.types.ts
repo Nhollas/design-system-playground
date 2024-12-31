@@ -12,4 +12,5 @@ export interface ControlledSelectFieldProps<
 export type SelectOptions<TValue = string> = {
   label: string
   value: TValue
+  id: string
 }[]

@@ -23,7 +23,7 @@ import { ControlledSelectFieldProps } from "./select-field.types"
 
 export function SelectField<
   TFieldValues extends FieldValues,
-  TValue extends string | number,
+  TValue extends string | number | undefined,
 >({
   fieldPath,
   description,
@@ -62,7 +62,7 @@ export function SelectField<
                 </FormControl>
                 <SelectContent>
                   {options.map((opt) => (
-                    <SelectItem key={opt.value} value={opt.value}>
+                    <SelectItem key={opt.id} value={opt.value}>
                       {opt.label}
                     </SelectItem>
                   ))}

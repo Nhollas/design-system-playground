@@ -6,4 +6,5 @@ export const createSelectOptions = (
   options.map((opt) => ({
     label: opt,
     value: opt,
+    id: crypto.randomUUID(),
   }))

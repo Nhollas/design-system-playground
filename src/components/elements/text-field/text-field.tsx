@@ -48,7 +48,7 @@ export function TextField<
               <FormControl>
                 <Input
                   {...field}
-                  value={field.value ?? ""}
+                  value={field.value}
                   placeholder=" "
                   {...inputProps}
                 />
