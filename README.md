@@ -2,7 +2,7 @@
 
 ## About
 
-This repository hosts a playground for a design system for creating consistent UI experiences. It provides reusable components, styling guidelines, and best practices.
+This repository demonstrates how you can build a design system that ensures consistent UI, reusable components, styling guidelines, and has accessibility at its core.
 
 ## Setup
 
