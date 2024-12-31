@@ -1,25 +1,25 @@
 import { FieldValues } from "react-hook-form"
 
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/primitives/select"
-import {
-  FormControl,
   FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
   FormFieldContainer,
 } from "@/components/primitives/form"
 import { HelpTextMessage, HelpTextProvider, HelpTextToggle } from "../help-text"
 import { IconSlot } from "@/components/primitives/icon-slot"
-import { ChevronDown, CircleCheck } from "lucide-react"
+import { CheckIcon, ChevronDown, CircleCheck } from "lucide-react"
 import { ControlledSelectFieldProps } from "./select-field.types"
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/primitives/select"
+import { ListBox, ListBoxItem } from "@/components/primitives/list-box"
+import { Popover, Text } from "react-aria-components"
+import type { Key } from "react-aria-components"
+import { Label } from "@/components/primitives/label"
 
 export function SelectField<
   TFieldValues extends FieldValues,
@@ -35,53 +35,74 @@ export function SelectField<
   isOptional,
   label,
 }: ControlledSelectFieldProps<TFieldValues, TValue>) {
+  const onSelectionChange = (
+    key: Key,
+    onChange: (...event: unknown[]) => void,
+    onBlur: () => void,
+  ) => {
+    const selectedOption = options.find((o) => o.id === key)
+
+    if (selectedOption) {
+      onChange(selectedOption.value)
+      onBlur()
+    }
+  }
+
   return (
     <FormField
       control={control}
       name={fieldPath}
-      render={({ field, isSuccess }) => (
+      render={({ field, isSuccess, isError }) => (
         <FormItem>
           <HelpTextProvider>
             {helpText && <HelpTextToggle />}
-            <FormFieldContainer>
-              {isSuccess ? (
-                <IconSlot className="text-success-600">
-                  <CircleCheck />
-                </IconSlot>
-              ) : (
-                <IconSlot className="text-neutral-700">{leadIcon}</IconSlot>
-              )}
-
-              <FormLabel optional={isOptional}>{label}</FormLabel>
-              <Select
-                onOpenChange={(val) => {
-                  if (!val) {
-                    field.onBlur()
-                  }
-                }}
-                onValueChange={(val) => {
-                  field.onChange(val)
+            <Select
+              onSelectionChange={(key) =>
+                onSelectionChange(key, field.onChange, field.onBlur)
+              }
+              placeholder={placeholder}
+              onOpenChange={(val) => {
+                if (!val) {
                   field.onBlur()
-                }}
-                value={field.value}
-              >
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder={placeholder} />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  {options.map((opt) => (
-                    <SelectItem key={opt.id} value={opt.value}>
-                      {opt.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <IconSlot className="text-neutral-700">
-                <ChevronDown />
-              </IconSlot>
-            </FormFieldContainer>
+                }
+              }}
+            >
+              <FormFieldContainer>
+                {isSuccess ? (
+                  <IconSlot className="text-success-600">
+                    <CircleCheck />
+                  </IconSlot>
+                ) : (
+                  <IconSlot className="text-neutral-700">{leadIcon}</IconSlot>
+                )}
+
+                <Label optional={isOptional}>{label}</Label>
+                <SelectTrigger data-success={isSuccess} data-error={isError}>
+                  <SelectValue />
+                </SelectTrigger>
+                <Popover className="w-[var(--trigger-width)]">
+                  <ListBox aria-label={`${label} Options`} items={options}>
+                    {(item) => (
+                      <ListBoxItem key={item.id} textValue={item.label}>
+                        {({ isSelected }) => (
+                          <>
+                            <Text slot="label">{item.label}</Text>
+                            {isSelected && (
+                              <IconSlot size="sm">
+                                <CheckIcon />
+                              </IconSlot>
+                            )}
+                          </>
+                        )}
+                      </ListBoxItem>
+                    )}
+                  </ListBox>
+                </Popover>
+                <IconSlot className="text-neutral-700">
+                  <ChevronDown />
+                </IconSlot>
+              </FormFieldContainer>
+            </Select>
             {description && <FormDescription>{description}</FormDescription>}
             <FormMessage />
             <HelpTextMessage>{helpText}</HelpTextMessage>

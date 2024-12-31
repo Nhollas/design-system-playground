@@ -141,7 +141,7 @@ export function AutocompleteTextField<
                         <>
                           <Text slot="label">{getDisplayValue(item)}</Text>
                           {isSelected && (
-                            <IconSlot>
+                            <IconSlot size="sm">
                               <CheckIcon />
                             </IconSlot>
                           )}

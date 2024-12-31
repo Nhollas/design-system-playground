@@ -15,10 +15,13 @@ export function Label({ className, optional = false, ...props }: LabelProps) {
   return (
     <AriaLabel
       data-slot="label"
-      className={cn("flex items-center", className)}
+      className={cn("flex items-center pointer-events-none", className)}
       {...props}
     >
-      <span data-slot="label-text" className="flex gap-x-4 items-center">
+      <span
+        data-slot="label-text"
+        className="flex gap-x-4 items-center pointer-events-auto"
+      >
         {props.children}
         {optional && (
           <Text.Paragraph as="span" size="sm" weight="medium">
