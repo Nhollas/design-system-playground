@@ -20,7 +20,7 @@ export default function RootLayout({
         <body className="bg-primary-500 w-full">
           <div className="p-16 min-h-screen flex flex-col">
             <Navigation />
-            <main className="bg-neutral-0 rounded-b-12 p-40 !pt-0 tablet:p-64 grow">
+            <main className="bg-neutral-0 rounded-b-12 p-40 tablet:p-64 pt-0 tablet:pt-0 grow">
               {children}
             </main>
           </div>
