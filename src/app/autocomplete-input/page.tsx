@@ -9,8 +9,8 @@ import { PageContainer } from "@/components/page-container"
 import { createListBoxOptions } from "@/components/primitives/list-box"
 
 const FormSchema = z.object({
-  occupation: z.string({ required_error: "Occupation is required." }).min(1),
-  industry: z.string({ required_error: "Industry is required." }).min(1),
+  occupation: z.string().nonempty("Occupation is required."),
+  industry: z.string().nonempty("Industry is required."),
 })
 
 const occupationOptions = createListBoxOptions([
@@ -32,6 +32,10 @@ export default function AutocompleteInputPage() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     mode: "onBlur",
+    defaultValues: {
+      occupation: "",
+      industry: "",
+    },
   })
 
   return (
