@@ -1,5 +1,5 @@
-import { ColourPalette } from "@/components/colours/colour-palette"
+import { TypographyDisplay } from "@/components/typography/typography-display"
 
 export default function TypographyPage() {
-  return <ColourPalette />
+  return <TypographyDisplay />
 }

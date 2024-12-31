@@ -20,21 +20,6 @@ export interface TextProps
   ref?: React.Ref<HTMLParagraphElement | HTMLSpanElement>
 }
 
-export interface LabelProps {
-  as?: "label" | "span" | "h2"
-  className?: string
-  children?: React.ReactNode
-  htmlFor?: string
-  size?: "small" | "large"
-}
-
-export interface ButtonLabelProps {
-  as?: "span"
-  className?: string
-  children?: React.ReactNode
-  variant?: "default" | "tertiary"
-}
-
 function HeadingXXL({
   as: Component = "h1",
   className,
@@ -177,50 +162,6 @@ function Paragraph({
   )
 }
 
-function Label({
-  as: Component = "span",
-  className,
-  children,
-  size,
-  htmlFor,
-}: LabelProps) {
-  return (
-    <Component
-      className={cn(
-        {
-          "text-14": size === "small",
-          "text-16": size === "large",
-        },
-        "font-semibold uppercase leading-150 tracking-5",
-        className,
-      )}
-      htmlFor={htmlFor}
-    >
-      {children}
-    </Component>
-  )
-}
-
-function ButtonLabel({
-  as: Component = "span",
-  className,
-  children,
-  variant,
-}: ButtonLabelProps) {
-  return (
-    <Component
-      className={cn(
-        {
-          underline: variant === "tertiary",
-        },
-        "font-medium uppercase leading-125 tracking-5",
-        className,
-      )}
-    >
-      {children}
-    </Component>
-  )
-}
 const text = {
   HeadingXXL,
   HeadingXL,
@@ -228,7 +169,5 @@ const text = {
   HeadingM,
   HeadingS,
   Paragraph,
-  Label,
-  ButtonLabel,
 }
 export default text
