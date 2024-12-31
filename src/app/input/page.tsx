@@ -1,13 +1,13 @@
 "use client"
 import {
-  Clock,
   Mail,
   User,
   Lock,
   Search,
   Phone,
   Info,
-  Calendar,
+  Building,
+  Briefcase,
 } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -17,9 +17,14 @@ import { TextField } from "@/components/elements/text-field"
 import { PageContainer } from "@/components/page-container"
 
 const FormSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  postcode: z.string(),
+  email: z.string().email("Invalid email address"),
+  username: z.string().nonempty("Username is required"),
+  search: z.string().nonempty("Search field cannot be empty"),
+  phone: z.string().nonempty("Phone number cannot be empty"),
+  company: z.string().nonempty("Company name is required"),
+  jobTitle: z.string().nonempty("Job title is required"),
+  notes: z.string().max(50, "Notes cannot exceed 50 characters"),
 })
 
 export default function InputPage() {
@@ -27,7 +32,14 @@ export default function InputPage() {
     resolver: zodResolver(FormSchema),
     mode: "onBlur",
     defaultValues: {
+      postcode: "",
+      email: "",
       username: "",
+      search: "",
+      phone: "",
+      company: "",
+      jobTitle: "",
+      notes: "",
     },
   })
 
@@ -39,10 +51,10 @@ export default function InputPage() {
           className="col-span-1 desktop:col-span-2 flex flex-col gap-16"
         >
           <TextField
-            label="Disabled Input"
+            label="Postcode"
             control={form.control}
-            fieldPath="username"
-            placeholder="This field is disabled"
+            fieldPath="postcode"
+            placeholder="Enter your postcode"
             leadIcon={<Lock />}
             description="This input field cannot be edited"
             disabled
@@ -50,7 +62,7 @@ export default function InputPage() {
           <TextField
             label="Email Address"
             control={form.control}
-            fieldPath="username"
+            fieldPath="email"
             placeholder="Enter your email"
             leadIcon={<Mail />}
             description="We'll never share your email"
@@ -69,42 +81,42 @@ export default function InputPage() {
           <TextField
             label="Search"
             control={form.control}
-            fieldPath="username"
+            fieldPath="search"
             placeholder="Type to search..."
             leadIcon={<Search />}
           />
           <TextField
             label="Phone Number"
             control={form.control}
-            fieldPath="username"
+            fieldPath="phone"
             placeholder="+1 (555) 000-0000"
             leadIcon={<Phone />}
             description="Enter your contact number"
           />
           <TextField
-            label="Date"
+            label="Company Name"
             control={form.control}
-            fieldPath="username"
-            placeholder="Select a date"
-            tailIcon={<Calendar />}
-            description="Choose your preferred date"
+            fieldPath="company"
+            placeholder="Enter company name"
+            leadIcon={<Building />}
+            description="Enter your company's legal name"
           />
           <TextField
-            label="Appointment Time"
+            label="Job Title"
             control={form.control}
-            fieldPath="username"
-            placeholder="Select time"
-            tailIcon={<Clock />}
-            description="Pick a suitable time slot"
+            fieldPath="jobTitle"
+            placeholder="Enter job title"
+            leadIcon={<Briefcase />}
+            description="Your current role or position"
           />
           <TextField
             label="Notes"
             control={form.control}
-            fieldPath="username"
+            fieldPath="notes"
             placeholder="Add any additional information"
             tailIcon={<Info />}
             description="Additional context or comments"
-            helpText="Maximum 500 characters"
+            helpText="Maximum 50 characters"
           />
         </form>
       </Form>
