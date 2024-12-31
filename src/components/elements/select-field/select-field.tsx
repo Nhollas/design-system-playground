@@ -9,7 +9,7 @@ import {
 } from "@/components/primitives/form"
 import { HelpTextMessage, HelpTextProvider, HelpTextToggle } from "../help-text"
 import { IconSlot } from "@/components/primitives/icon-slot"
-import { CheckIcon, ChevronDown, CircleCheck } from "lucide-react"
+import { ChevronDown, CircleCheck } from "lucide-react"
 import { ControlledSelectFieldProps } from "./select-field.types"
 import {
   Select,
@@ -17,7 +17,7 @@ import {
   SelectValue,
 } from "@/components/primitives/select"
 import { ListBox, ListBoxItem } from "@/components/primitives/list-box"
-import { Popover, Text } from "react-aria-components"
+import { Popover } from "react-aria-components"
 import type { Key } from "react-aria-components"
 import { Label } from "@/components/primitives/label"
 
@@ -80,28 +80,15 @@ export function SelectField<
                 <SelectTrigger data-success={isSuccess} data-error={isError}>
                   <SelectValue />
                 </SelectTrigger>
-                <Popover className="w-[var(--trigger-width)]">
-                  <ListBox aria-label={`${label} Options`} items={options}>
-                    {(item) => (
-                      <ListBoxItem key={item.id} textValue={item.label}>
-                        {({ isSelected }) => (
-                          <>
-                            <Text slot="label">{item.label}</Text>
-                            {isSelected && (
-                              <IconSlot size="sm">
-                                <CheckIcon />
-                              </IconSlot>
-                            )}
-                          </>
-                        )}
-                      </ListBoxItem>
-                    )}
-                  </ListBox>
-                </Popover>
                 <IconSlot className="text-neutral-700">
                   <ChevronDown />
                 </IconSlot>
               </FormFieldContainer>
+              <Popover className="w-[var(--trigger-width)]">
+                <ListBox aria-label={`${label} Options`} items={options}>
+                  {(item) => <ListBoxItem key={item.id} item={item} />}
+                </ListBox>
+              </Popover>
             </Select>
             {description && <FormDescription>{description}</FormDescription>}
             <FormMessage />

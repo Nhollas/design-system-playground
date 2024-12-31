@@ -1,6 +1,6 @@
 import { FieldValues } from "react-hook-form"
 import { HelpTextProvider, HelpTextMessage, HelpTextToggle } from "../help-text"
-import { CheckIcon, CircleCheck } from "lucide-react"
+import { CircleCheck } from "lucide-react"
 import { useState } from "react"
 import { useDebounce } from "use-debounce"
 import { ControlledAutocompleteTextFieldProps } from "./autocomplete-text-field.types"
@@ -19,7 +19,7 @@ import {
   FormFieldContainer,
 } from "@/components/primitives/form"
 import { IconSlot } from "@/components/primitives/icon-slot"
-import { ComboBox, Text, Popover, Key } from "react-aria-components"
+import { ComboBox, Popover, Key } from "react-aria-components"
 import { Input } from "@/components/primitives/input"
 import { Label } from "@/components/primitives/label"
 
@@ -135,20 +135,7 @@ export function AutocompleteTextField<
                     )
                   }
                 >
-                  {(item) => (
-                    <ListBoxItem key={item.id} textValue={item.label}>
-                      {({ isSelected }) => (
-                        <>
-                          <Text slot="label">{getDisplayValue(item)}</Text>
-                          {isSelected && (
-                            <IconSlot size="sm">
-                              <CheckIcon />
-                            </IconSlot>
-                          )}
-                        </>
-                      )}
-                    </ListBoxItem>
-                  )}
+                  {(item) => <ListBoxItem key={item.id} item={item} />}
                 </ListBox>
               </Popover>
             </ComboBox>
