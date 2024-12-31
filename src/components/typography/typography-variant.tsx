@@ -14,14 +14,10 @@ export function TypographyVariant({
   return (
     <div>
       <Text.HeadingM weight="medium">{title}</Text.HeadingM>
-      <Text.Paragraph
-        size="md"
-        weight="regular"
-        className="text-neutral-500 py-8"
-      >
+      <Text.Paragraph size="md" className="py-12 desktop:py-16">
         {subheading}
       </Text.Paragraph>
-      <div className="flex flex-wrap gap-40 items-center border-t border-neutral-500 pt-24 *:text-neutral-900">
+      <div className="flex flex-wrap gap-40 items-center border-t border-neutral-700 pt-24 *:text-neutral-900">
         {children}
       </div>
     </div>
