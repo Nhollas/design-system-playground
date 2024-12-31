@@ -9,7 +9,7 @@ export function TypographyGroup({
 }) {
   return (
     <section className="flex gap-40 flex-col">
-      <Text.HeadingXL weight="medium">{title}</Text.HeadingXL>
+      <Text.HeadingL as="h2">{title}</Text.HeadingL>
       <div className="flex flex-col gap-64">{children}</div>
     </section>
   )

@@ -22,9 +22,15 @@ export default function Navigation() {
 
   return (
     <nav className="bg-neutral-0 rounded-t-12 p-40 tablet:p-64 space-y-32 flex flex-col desktop:flex-row justify-between items-start">
-      <section className="space-y-16">
-        <Text.Paragraph size="xl">Design System Playground</Text.Paragraph>
-        <Text.HeadingL weight="medium">{formattedPath}</Text.HeadingL>
+      <section className="flex flex-col gap-16">
+        <Link href="/">
+          <Text.Paragraph as="span" size="xl">
+            Design System Playground
+          </Text.Paragraph>
+        </Link>
+        <Text.HeadingL as="h1" weight="medium">
+          {formattedPath}
+        </Text.HeadingL>
       </section>
       <ul className="flex flex-wrap gap-40 gap-y-16 **:[li]:underline col-span-1 desktop:col-span-2">
         <li>

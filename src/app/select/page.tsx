@@ -16,7 +16,28 @@ const FormSchema = z.object({
 })
 
 const colorOptions = createSelectOptions(["Red", "Blue", "Green", "Yellow"])
-const countryOptions = createSelectOptions(["USA", "Canada", "UK", "Australia"])
+const countryOptions = createSelectOptions([
+  "USA",
+  "Canada",
+  "UK",
+  "Australia",
+  "Germany",
+  "France",
+  "Italy",
+  "Spain",
+  "Mexico",
+  "Brazil",
+  "Argentina",
+  "China",
+  "Japan",
+  "South Korea",
+  "India",
+  "Russia",
+  "South Africa",
+  "Egypt",
+  "Nigeria",
+  "Kenya",
+])
 const timeOptions = createSelectOptions([
   "Morning",
   "Afternoon",

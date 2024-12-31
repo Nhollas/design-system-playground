@@ -23,13 +23,13 @@ interface HelpTextProviderProps {
   children: ReactNode
 }
 
-export function HelpTextProvider({ children }: HelpTextProviderProps) {
+function HelpTextProvider({ children }: HelpTextProviderProps) {
   const [open, toggle] = useState(false)
 
   return <HelpTextContext value={{ open, toggle }}>{children}</HelpTextContext>
 }
 
-export function HelpTextToggle({ className }: { className?: string }) {
+function HelpTextToggle({ className }: { className?: string }) {
   const { toggle } = use(HelpTextContext)
 
   return (
@@ -47,7 +47,7 @@ export function HelpTextToggle({ className }: { className?: string }) {
   )
 }
 
-export function HelpTextMessage({ children }: { children: ReactNode }) {
+function HelpTextMessage({ children }: { children: ReactNode }) {
   const { open } = use(HelpTextContext)
 
   if (!open) return
@@ -64,3 +64,5 @@ export function HelpTextMessage({ children }: { children: ReactNode }) {
     </Text.Paragraph>
   )
 }
+
+export { HelpTextProvider, HelpTextToggle, HelpTextMessage }

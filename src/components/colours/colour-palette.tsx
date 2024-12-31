@@ -94,7 +94,7 @@ export function ColourPalette() {
     <section className="flex gap-32 desktop:gap-40 flex-col">
       {Object.entries(colourPalettes).map(([key, palette]) => (
         <div key={key} className="flex flex-col gap-y-12">
-          <Text.HeadingM>{palette.title}</Text.HeadingM>
+          <Text.HeadingM as="h2">{palette.title}</Text.HeadingM>
           <Text.Paragraph>{palette.description}</Text.Paragraph>
           <div className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-12 desktop:gap-20">
             {palette.colors.map((color) => (

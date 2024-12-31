@@ -9,10 +9,7 @@ import Text from "./text"
 import { IconSlot } from "./icon-slot"
 import { CheckIcon } from "lucide-react"
 
-export function ListBox<T extends object>({
-  children,
-  ...props
-}: ListBoxProps<T>) {
+function ListBox<T extends object>({ children, ...props }: ListBoxProps<T>) {
   return (
     <ReactAriaListBox
       {...props}
@@ -23,7 +20,7 @@ export function ListBox<T extends object>({
   )
 }
 
-export function ListBoxItem({
+function ListBoxItem({
   item,
   ...props
 }: ListBoxItemProps & { item: ListBoxOption }) {
@@ -47,25 +44,34 @@ export function ListBoxItem({
   )
 }
 
-export function ListBoxEmpty({ children }: { children: React.ReactNode }) {
+function ListBoxEmpty({ children }: { children: React.ReactNode }) {
   return <Text.Paragraph className="px-8 py-4">{children}</Text.Paragraph>
 }
 
-export function ListBoxLoading({ children }: { children: React.ReactNode }) {
+function ListBoxLoading({ children }: { children: React.ReactNode }) {
   return <Text.Paragraph className="px-8 py-4">{children}</Text.Paragraph>
 }
 
-export interface ListBoxOption<TValue extends string | number = string> {
+interface ListBoxOption<TValue extends string | number = string> {
   value: TValue
   label: string
   id: string
 }
 
-export function createListBoxOptions<TValue extends string | number = string>(
+function createListBoxOptions<TValue extends string | number = string>(
   items: Array<Omit<ListBoxOption<TValue>, "id">>,
 ): ListBoxOption<TValue>[] {
   return items.map((item) => ({
     ...item,
     id: crypto.randomUUID(),
   }))
+}
+
+export {
+  ListBox,
+  ListBoxItem,
+  ListBoxEmpty,
+  ListBoxLoading,
+  createListBoxOptions,
+  type ListBoxOption,
 }
